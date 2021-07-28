@@ -28,22 +28,8 @@ steps:
     msbuildArgs: '/p:OutputPath="$(build.artifactStagingDirectory)"'
     configuration: '$(buildConfiguration)'
 
-
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'dropper'
     publishLocation: 'Container'
-
-- task: GitHubRelease@1
-  inputs:
-    gitHubConnection: '0x10f2c'
-    repositoryName: 'PrivasecRED/Azure-Pipelines-Artifacts'
-    action: 'create'
-    target: '$(Build.SourceVersion)'
-    tagSource: 'userSpecifiedTag'
-    tag: '$(build.buildNumber)'
-    releaseNotesSource: 'inline'
-    releaseNotesInline: 'Test'
-    addChangeLog: false
-
