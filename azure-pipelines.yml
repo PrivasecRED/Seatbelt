@@ -42,7 +42,8 @@ steps:
     action: 'create'
     target: '$(Build.SourceVersion)'
     tagSource: 'userSpecifiedTag'
-    tag: 'Release-v1.0'
+    tag: '$(build.buildNumber)'
     releaseNotesSource: 'inline'
     releaseNotesInline: 'Test'
     addChangeLog: false
+
