@@ -40,10 +40,12 @@ steps:
     gitHubConnection: '0x10f2c'
     repositoryName: 'PrivasecRED/Azure-Pipelines-Artifacts'
     action: 'create'
-    target: '$(Build.BuildNumber)'
+    target: '$(Build.SourceVersion)'
     tagSource: 'userSpecifiedTag'
     tag: 'Release'
     title: 'Seatbelt'
     releaseNotesSource: 'inline'
-    releaseNotesInline: 'Release'
+    releaseNotesInline: 'Notes'
     addChangeLog: false
+    assets: '$(Build.ArtifactStagingDirectory)/*'
+
