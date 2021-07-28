@@ -44,6 +44,6 @@ steps:
     tagSource: 'userSpecifiedTag'
     tag: 'Release-v1.0'
     title: 'Seatbelt'
-    releaseNotesFilePath: 'Notes'
+    releaseNotesInline: 'Notes'
     changeLogCompareToRelease: 'lastFullRelease'
     changeLogType: 'commitBased'
