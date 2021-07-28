@@ -45,3 +45,6 @@ steps:
     tagSource: 'gitTag'
     changeLogCompareToRelease: 'lastFullRelease'
     changeLogType: 'commitBased'
+    tag: 'release-v1.0'
+    title: 'Seatbelt release'
+
