@@ -33,15 +33,12 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'dropper'
     publishLocation: 'Container'
-- task: GitHubRelease@1
+
+- task: UniversalPackages@0
   inputs:
-    gitHubConnection: '0x10f2c'
-    repositoryName: 'PrivasecRED/Azure-Pipelines-Artifacts'
-    action: 'create'
-    target: '$(Build.SourceVersion)'
-    tagSource: 'userSpecifiedTag'
-    tag: 'Release'
-    title: 'Release'
-    releaseNotesSource: 'inline'
-    releaseNotesInline: 'Release'
-    addChangeLog: false
+    command: 'publish'
+    publishDirectory: '$(Build.ArtifactStagingDirectory)'
+    feedsToUsePublish: 'internal'
+    vstsFeedPublish: 'b2bf49e5-9d2b-4075-8842-a61d8f6a7077/673cc80b-8868-4c72-bcfa-b397dffcd043'
+    vstsFeedPackagePublish: 'SeatBelt'
+    versionOption: 'patch'
