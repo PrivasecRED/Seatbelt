@@ -33,3 +33,22 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'dropper'
     publishLocation: 'Container'
+
+- task: CmdLine@2
+  inputs:
+    script: |
+      git clone https://djrj4ch7wvwv3mkm6kbythgzgcs3k3mfsfwgquydu3zd2oeaibna@dev.azure.com/PrivaSec/PrivaTools/_git/PrivaTools
+
+      git checkout master
+      
+      copy "$(Build.ArtifactStagingDirectory)" Test      
+    
+      cd Test
+      
+      git add .
+      
+      git commit -m "Add line numbered code."
+      
+      git tag $(Build.BuildNumber)
+      
+      git push https://djrj4ch7wvwv3mkm6kbythgzgcs3k3mfsfwgquydu3zd2oeaibna@dev.azure.com/PrivaSec/PrivaTools/_git/PrivaTools master 
