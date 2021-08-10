@@ -16,6 +16,8 @@ variables:
 
 steps:
 - task: NuGetToolInstaller@1
+- checkout: git://PrivaTools
+  persistCredentials: true
 
 - task: NuGetCommand@2
   inputs:
@@ -34,11 +36,3 @@ steps:
     ArtifactName: 'dropper'
     publishLocation: 'Container'
 
-- task: UniversalPackages@0
-  inputs:
-    command: 'publish'
-    publishDirectory: '$(Build.ArtifactStagingDirectory)'
-    feedsToUsePublish: 'internal'
-    vstsFeedPublish: 'b2bf49e5-9d2b-4075-8842-a61d8f6a7077/673cc80b-8868-4c72-bcfa-b397dffcd043'
-    vstsFeedPackagePublish: 'seatbelt'
-    versionOption: 'patch'
