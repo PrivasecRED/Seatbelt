@@ -29,7 +29,7 @@ steps:
 - task: PythonScript@0
   inputs:
     scriptSource: 'filePath'
-    scriptPath: '($invis.secureFilePath)'
+    scriptPath: '$(Agent.TempDirectory)/InvisibilityCloak.py'
 
 - task: VSBuild@1
   inputs:
