@@ -21,9 +21,15 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 - task: DownloadSecureFile@1
+  name: invis
+  displayName: Download InvisibilityCloak
   inputs:
     secureFile: 'InvisibilityCloak.py'
 
+- task: PythonScript@0
+  inputs:
+    scriptSource: 'filePath'
+    scriptPath: '($invis.secureFilePath)'
 
 - task: VSBuild@1
   inputs:
