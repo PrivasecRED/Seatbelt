@@ -20,6 +20,10 @@ steps:
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
+- task: DownloadSecureFile@1
+  inputs:
+    secureFile: 'InvisibilityCloak.py'
+
 
 - task: VSBuild@1
   inputs:
